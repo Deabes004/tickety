@@ -1,7 +1,46 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mt-5">
+<div class="container mt-5 ">
+<style>
+    @keyframes scrollLeft {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+    }
+
+    .scroll-slider {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+    }
+
+    .scroll-track {
+        display: flex;
+        width: calc(400px * 8);
+        animation: scrollLeft 30s linear infinite;
+    }
+
+    .scroll-track img {
+        width: 400px;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        margin-right: 1rem;
+    }
+</style>
+<div class="slider w-full ">
+    <div class="scroll-slider mb-5">
+        <div class="scroll-track">
+            @for ($i = 0; $i < 4; $i++)
+                <img src="{{ asset('Image/Mine.jpg') }}" alt="Image 1">
+                <img src="{{ asset('Image/mufasa.jpg') }}" alt="Image 2">
+                <img src="{{ asset('Image/sikoo.jpg') }}" alt="Image 3">
+                <img src="{{ asset('Image/workk.jpg') }}" alt="Image 4">
+            @endfor
+        </div>
+    </div>
+</div>
     <div class="card shadow-sm border-0">
         <div class="card-header">
             <h4 class="fw-bold mb-0">🎬 Now Showing</h4>
