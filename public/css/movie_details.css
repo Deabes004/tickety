@@ -1,0 +1,290 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #121212;
+  color: #ffffff;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: bold;
+  color: #f39c12;
+}
+
+.nav-links a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.booking-container {
+  display: flex;
+  gap: 30px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.movie-info {
+  flex: 1;
+  min-width: 300px;
+}
+
+.movie-poster {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.movie-title {
+  font-size: 32px;
+  margin: 20px 0 10px;
+  color: #f39c12;
+}
+
+.movie-meta span {
+  margin-right: 15px;
+  font-size: 14px;
+  color: #bbb;
+}
+
+.movie-meta i {
+  margin-right: 5px;
+}
+
+.movie-description {
+  margin-top: 15px;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+/* ==== Booking Form ==== */
+.booking-form {
+  flex: 1;
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  min-width: 320px;
+}
+
+.form-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #f39c12;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #ddd;
+}
+
+input[type="date"],
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background-color: #2c2c2c;
+  color: white;
+  
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* ==== Seats ==== */
+.screen-container {
+  margin-top: 25px;
+}
+
+.screen {
+  background-color: #f39c12;
+  height: 25px;
+  margin: 15px auto;
+  width: 60%;
+  border-radius: 4px;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  line-height: 25px;
+}
+
+.seats-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.seat-row {
+  display: flex;
+  gap: 10px;
+}
+
+.seat {
+  width: 30px;
+  height: 30px;
+  background-color: #444;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.seat.selected {
+  background-color: #2ecc71;
+}
+
+.seat.occupied {
+  background-color: #e74c3c;
+  cursor: not-allowed;
+}
+
+.seat:hover:not(.occupied):not(.selected) {
+  background-color: #777;
+}
+
+/* ==== Seat Legend ==== */
+.seat-legend {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.selectedlogo {
+  background-color: #2ecc71;
+}
+
+/* ==== Booking Summary ==== */
+.booking-summary {
+  background-color: #292929;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.summary-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #f39c12;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.summary-total {
+  margin-top: 15px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  color: #2ecc71;
+}
+
+/* ==== Button ==== */
+.btn {
+  display: block;
+  width: 100%;
+  background-color: #f39c12;
+  color: black;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #d35400;
+}
+.movie-ad {
+  background-color: #121212;
+  padding: 40px 20px;
+  margin-bottom: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+.movie-ad-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.movie-ad-text {
+  color: #fff;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.movie-ad-text h2 {
+  font-size: 32px;
+  color: #f39c12;
+  margin-bottom: 15px;
+}
+
+.movie-ad-text p {
+  font-size: 18px;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.movie-ad-text .btn {
+  background-color: #f39c12;
+  color: black;
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.movie-ad-text .btn:hover {
+  background-color: #d35400;
+}
