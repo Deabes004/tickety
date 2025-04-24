@@ -2,7 +2,6 @@
 
 @section('content')
 @php
-    use Illuminate\Support\Facades\Auth;
     $user = Auth::user();
 @endphp
 
@@ -14,25 +13,28 @@
 
   .dashboard-container {
     display: flex;
-    margin-top: 80px; /* علشان الـ navbar */
-    height: calc(100vh - 80px);
-  }
-
-  .left-side {
-    flex: 1;
-    display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    padding: 40px;
+    margin-top: 80px;
+    padding: 40px 20px;
+    min-height: calc(100vh - 80px);
     text-align: center;
   }
 
-  .right-side {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
+  .dashboard-header {
+    margin-bottom: 40px;
+  }
+
+  .dashboard-header h2 {
+    font-size: 36px;
+    color: #ffcc00;
+  }
+
+  .dashboard-header p {
+    color: #ccc;
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto;
   }
 
   .cards-wrapper {
@@ -44,19 +46,35 @@
   }
 
   .cards-wrapper .card {
-    flex: 1 1 45%;
+    flex: 1 1 300px;
     max-width: 350px;
-    background-color: #222 !important;
+    background-color: #222;
     color: #fff;
-    border-radius: 10px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    padding: 30px;
+    transition: transform 0.3s ease;
   }
 
-  .card .card-title {
+  .cards-wrapper .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .card i {
+    font-size: 48px;
     color: #ffcc00;
+    margin-bottom: 20px;
   }
 
-  .card .card-text {
+  .card-title {
+    font-size: 22px;
+    color: #ffcc00;
+    margin-bottom: 10px;
+  }
+
+  .card-text {
     color: #ccc;
+    font-size: 16px;
   }
 
   .btn-outline-primary,
@@ -64,6 +82,8 @@
     border-color: #ffcc00 !important;
     background-color: #ffcc00 !important;
     color: #111 !important;
+    margin-top: 15px;
+    font-weight: bold;
   }
 
   .btn-outline-primary:hover,
@@ -74,33 +94,34 @@
 </style>
 
 <div class="dashboard-container">
-  <!-- Left Side: Welcome Message -->
-  <div class="left-side">
-    <div>
-      <h2 class="fw-bold">👋 Welcome, {{ $user->name ?? 'Guest' }}!</h2>
-      <p class="text-muted fs-5">Here you can manage your bookings, view your tickets, and enjoy the show!</p>
-    </div>
+  <div class="dashboard-header">
+    <h2>👋 Welcome, {{ $user->name ?? 'Guest' }}!</h2>
+    <p>Here you can manage everything related to your movie-going experience – check bookings, explore movies, and more.</p>
   </div>
 
-  <!-- Right Side: Cards and Buttons -->
-  <div class="right-side">
-    <div class="cards-wrapper">
-        <!-- My Bookings -->
-        <div class="card shadow-sm border-0 h-100 text-center p-4">
-            <i class="bi bi-ticket-perforated-fill fs-1 text-warning mb-3"></i>
-            <h5 class="card-title fw-bold">My Bookings</h5>
-            <p class="card-text">Check your current and past bookings.</p>
-            <a href="{{ route('user.bookings.index') }}" class="btn btn-outline-primary rounded-pill mt-3">Go to Bookings</a>
-        </div>
-
-        <!-- Browse Movies -->
-        <div class="card shadow-sm border-0 h-100 text-center p-4">
-            <i class="bi bi-film fs-1 text-warning mb-3"></i>
-            <h5 class="card-title fw-bold">Browse Movies</h5>
-            <p class="card-text">Explore the latest movies and book your seat.</p>
-            <a href="{{ route('user.movies.index') }}" class="btn btn-outline-danger rounded-pill mt-3">View Movies</a>
-        </div>
+  <div class="cards-wrapper">
+    <!-- My Bookings -->
+    <div class="card text-center">
+      <i class="bi bi-ticket-perforated-fill"></i>
+      <h5 class="card-title">My Bookings</h5>
+      <p class="card-text">Check your current and past bookings.</p>
+      <a href="{{ route('user.bookings.index') }}" class="btn btn-outline-primary rounded-pill">View Bookings</a>
     </div>
-  </div>
+
+    <!-- Browse Movies -->
+    <div class="card text-center">
+      <i class="bi bi-film"></i>
+      <h5 class="card-title">Browse Movies</h5>
+      <p class="card-text">Explore the latest releases and book your favorite seats.</p>
+      <a href="{{ route('user.movies.index') }}" class="btn btn-outline-danger rounded-pill">View Movies</a>
+    </div>
+
+    <!-- Profile Settings -->
+    <div class="card text-center">
+      <i class="bi bi-person-circle"></i>
+      <h5 class="card-title">Profile Settings</h5>
+      <p class="card-text">Update your personal info, password, and preferences.</p>
+      <a href="{{ route('user.profile') }}" class="btn btn-outline-primary rounded-pill">Edit Profile</a>
+    </div>
 </div>
 @endsection
