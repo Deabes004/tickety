@@ -25,7 +25,7 @@
         width: 100%;
         height: 100%; /* Make the images take the full height of the slider */
         object-fit: cover;
-        border-radius: 0.5rem;
+        border-radius: 0; /* Sharp edges */
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
 </style>
@@ -42,7 +42,7 @@
         </div>
     </div>
 </div>
-    <div class="card shadow-sm border-0">
+    <div class="card shadow-sm border-0 rounded-none">
         <div class="my-10 text-center text-white text-3xl">
             <h1 class="fw-bold">🎬 Now Showing</h1>
         </div>
@@ -52,13 +52,14 @@
             @else
                 <div class="row">
                     @foreach($movies as $movie)
-                       <div class="col-md-6 col-lg-4 mb-4 movie">
-                            <div class="card h-100 shadow-sm border-0 position-relative">
-                                <a href="{{ route('user.movies.show', $movie->id) }}" class="stretched-link text-decoration-none text-dark"></a>
-                                @if($movie->poster_url)
-                                    <img src="{{ $movie->poster_url }}" class="card-img-top" style="height: 350px; object-fit: cover;" alt="{{ $movie->title }} Poster">
-                                @endif
-                                <div class="card-body movie-info">
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="card shadow-sm border-0 rounded-none">
+                                <a href="{{ route('user.movies.show', $movie->id) }}" class="stretched-link text-decoration-none">
+                                    @if($movie->poster_url)
+                                        <img src="{{ $movie->poster_url }}" class="card-img-top" style="height: 350px; object-fit: cover;" alt="{{ $movie->title }} Poster">
+                                    @endif
+                                </a>
+                                <div class="card-body">
                                     <h5 class="card-title fw-bold">{{ $movie->title }}</h5>
                                     <p class="text-muted mb-1"><strong>Genre:</strong> {{ $movie->genre ?? 'N/A' }}</p>
                                     <p class="text-muted mb-1"><strong>Duration:</strong> {{ $movie->duration_minutes }} mins</p>
