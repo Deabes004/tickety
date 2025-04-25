@@ -127,7 +127,7 @@
 </nav>
 
 <!-- Main Content -->
-<div class="container py-4 mb-5">
+<div class="container-fluid px-0">
     @yield('content')
 </div>
 

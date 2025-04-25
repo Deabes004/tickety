@@ -4,22 +4,22 @@
 <!-- Home Page Content -->
 
 <!-- For all users (logged in or guests) -->
-<section class="hero greet">
-    <div class="greet-box">
-        <h1 class="fw-bold">Welcome to <span>Tickty</span></h1>
-        <p class="mb-4">Your one-stop solution for booking and managing movie tickets.</p>
-        <p class="mb-4">Explore movies, choose your seats, and complete your payment in just a few clicks.</p>
-        <div class="cta-buttons">
-            <a href="{{ route('login') }}" class="btn btn-outline-light btn-lg mx-2">Login</a>
-            <a href="{{ route('register') }}" class="btn btn-outline-light btn-lg mx-2">Register</a>
+<section class="hero w-100">
+    <div class="w-100 h-auto px-0 py-16 text-center bg-black pb-40 rounded-b-3xl">
+        <h1 class="fw-bold text-7xl pb-5">Welcome to <span>Tickty</span></h1>
+        <p class="pb-3 text-3xl">Your one-stop solution for booking and managing movie tickets.</p>
+        <p class="pb-5 text-xl">Explore movies, choose your seats, and complete your payment in just a few clicks.</p>
+        <div class="cta-buttons flex px-40 gap-5">
+            <a href="{{ route('login') }}" class="btn bg-yellow-400 text-black font-bold py-3 px-4 rounded w-full">Login</a>
+            <a href="{{ route('register') }}" class="btn bg-yellow-400 text-black font-bold py-3 px-4 rounded w-full">Register</a>
         </div>
     </div>
 </section>
 
 <!-- Features Section -->
 <section class="features py-5">
-    <div class="container text-center">
-        <h2 class="mb-4">What We Do</h2>
+    <div class="container-fluid text-center">
+        <h2 class="fw-bold text-5xl pb-5">What We Do</h2>
         <div class="row">
             <div class="col-md-4">
                 <h4>Browse Movies</h4>
