@@ -20,17 +20,17 @@
 <section class="features py-5">
     <div class="container-fluid text-center">
         <h2 class="fw-bold text-5xl pb-5">What We Do</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <h4>Browse Movies</h4>
+        <div class="services flex justify-center gap-8">
+            <div class="card bg-gray-800 text-white p-6 rounded-lg w-80">
+                <h1 class="text-2xl font-bold pb-4">Browse Movies</h1>
                 <p>Choose from a wide variety of movies and showtimes, including all the latest releases!</p>
             </div>
-            <div class="col-md-4">
-                <h4>Choose Your Seat</h4>
+            <div class="card bg-gray-800 text-white p-6 rounded-lg w-80">
+                <h1 class="text-2xl font-bold pb-4">Choose Your Seat</h1>
                 <p>Select the perfect seat from our interactive seat map and enjoy your movie in comfort.</p>
             </div>
-            <div class="col-md-4">
-                <h4>Easy Payment</h4>
+            <div class="card bg-gray-800 text-white p-6 rounded-lg w-80">
+                <h1 class="text-2xl font-bold pb-4">Easy Payment</h1>
                 <p>With a range of payment methods, booking your tickets is just a few clicks away.</p>
             </div>
         </div>
