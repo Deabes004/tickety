@@ -30,7 +30,7 @@
 
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm sticky top-0 z-10">
     <div class="container">
         @if(Auth::check()) <!-- Check if user is logged in -->
             @if($authUser->role_id == 3)
@@ -53,30 +53,30 @@
                 <ul class="navbar-nav me-auto">
                     @if($authUser->role_id == 1)
                         <!-- Regular User -->
-                        <li class="nav-item"><a class="nav-link" href="{{ route('user.movies.index') }}">Now Showing</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('user.bookings.index') }}">My Bookings</a></li>
+                        <li class="nav-item"><a class="nav-link text-white hover:text-yellow-500" href="{{ route('user.movies.index') }}">Now Showing</a></li>
+                        <li class="nav-item"><a class="nav-link text-white hover:text-yellow-500" href="{{ route('user.bookings.index') }}">My Bookings</a></li>
                     @endif
 
                     @if($authUser->role_id == 2)
                           <!-- Admin -->
-                        <li class="nav-item"><a class="nav-link" href="{{ route('movies.index') }}">Browse Movies</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('showtimes.index') }}">All Showtimes</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('halls.index') }}">Manage Halls</a></li>
+                        <li class="nav-item"><a class="nav-link text-white hover:text-yellow-500" href="{{ route('movies.index') }}">Browse Movies</a></li>
+                        <li class="nav-item"><a class="nav-link text-white hover:text-yellow-500" href="{{ route('showtimes.index') }}">All Showtimes</a></li>
+                        <li class="nav-item"><a class="nav-link text-white hover:text-yellow-500" href="{{ route('halls.index') }}">Manage Halls</a></li>
                     @endif
 
                     @if($authUser->role_id == 3)
                         <!-- Super Admin -->
-                        <li class="nav-item"><a class="nav-link" href="{{ route('movies.index') }}">Browse Movies</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('showtimes.index') }}">All Showtimes</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('cinemas.index') }}">Cinemas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('halls.index') }}">Halls</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('bookings.index') }}">All Bookings</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('payments.index') }}">All Payments</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('companies.index') }}">Companies</a></li>
+                        <li class="nav-item"><a class="nav-link text-white hover:text-yellow-500" href="{{ route('movies.index') }}">Browse Movies</a></li>
+                        <li class="nav-item"><a class="nav-link text-white hover:text-yellow-500" href="{{ route('showtimes.index') }}">All Showtimes</a></li>
+                        <li class="nav-item"><a class="nav-link text-white hover:text-yellow-500" href="{{ route('cinemas.index') }}">Cinemas</a></li>
+                        <li class="nav-item"><a class="nav-link text-white hover:text-yellow-500" href="{{ route('halls.index') }}">Halls</a></li>
+                        <li class="nav-item"><a class="nav-link text-white hover:text-yellow-500" href="{{ route('bookings.index') }}">All Bookings</a></li>
+                        <li class="nav-item"><a class="nav-link text-white hover:text-yellow-500" href="{{ route('payments.index') }}">All Payments</a></li>
+                        <li class="nav-item"><a class="nav-link text-white hover:text-yellow-500" href="{{ route('companies.index') }}">Companies</a></li>
 
                         <!-- Users Management -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="usersDropdown" role="button" data-bs-toggle="dropdown">
+                            <a class="nav-link dropdown-toggle text-white hover:text-yellow-500" href="#" id="usersDropdown" role="button" data-bs-toggle="dropdown">
                                 👥 Users
                             </a>
                             <ul class="dropdown-menu">
@@ -87,7 +87,7 @@
 
                         <!-- Admin Management -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="adminsDropdown" role="button" data-bs-toggle="dropdown">
+                            <a class="nav-link dropdown-toggle text-white hover:text-yellow-500" href="#" id="adminsDropdown" role="button" data-bs-toggle="dropdown">
                                 ⚙️ Admins
                             </a>
                             <ul class="dropdown-menu">
@@ -102,7 +102,7 @@
                 <!-- User Dropdown -->
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+                        <a class="nav-link dropdown-toggle text-white hover:text-yellow-500" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
                             {{ $authUser->name ?? 'User' }}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
@@ -142,5 +142,36 @@
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 @yield('scripts')
+
+<script>
+    window.onscroll = function() {
+        changeNavbarColor();
+    };
+
+    function changeNavbarColor() {
+        const navbar = document.querySelector('nav');
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+
+        if (window.scrollY > 10) {
+            navbar.classList.add('bg-white', 'text-black');
+            navbar.classList.remove('bg-black', 'text-white');
+            navLinks.forEach(link => {
+                link.classList.add('text-black');
+                link.classList.remove('text-white');
+            });
+        } else {
+            navbar.classList.add('bg-black', 'text-white');
+            navbar.classList.remove('bg-white', 'text-black');
+            navLinks.forEach(link => {
+                link.classList.add('text-white');
+                link.classList.remove('text-black');
+            });
+        }
+    }
+    // Ensure initial state is set correctly on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        changeNavbarColor();
+    });
+</script>
 </body>
 </html>
