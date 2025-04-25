@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mt-5 ">
+<div class="px-0 w-screen">
 <style>
     @keyframes scrollLeft {
         0% { transform: translateX(0); }
@@ -12,6 +12,7 @@
         overflow: hidden;
         position: relative;
         width: 100%;
+        height: 500px; /* Set the height to 500px */
     }
 
     .scroll-track {
@@ -21,18 +22,18 @@
     }
 
     .scroll-track img {
-        width: 400px;
-        height: 250px;
+        width: 100%;
+        height: 100%; /* Make the images take the full height of the slider */
         object-fit: cover;
         border-radius: 0.5rem;
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        margin-right: 1rem;
     }
 </style>
-<div class="slider w-full ">
-    <div class="scroll-slider mb-5">
+
+<div class="slider w-full px-0">
+    <div class="scroll-slider">
         <div class="scroll-track">
-            @for ($i = 0; $i < 4; $i++)
+            @for ($i = 0; $i < 10; $i++)
                 <img src="{{ asset('Image/Mine.jpg') }}" alt="Image 1">
                 <img src="{{ asset('Image/mufasa.jpg') }}" alt="Image 2">
                 <img src="{{ asset('Image/sikoo.jpg') }}" alt="Image 3">
@@ -42,9 +43,8 @@
     </div>
 </div>
     <div class="card shadow-sm border-0">
-        <div class="card-header">
-            <h4 class="fw-bold mb-0">🎬 Now Showing</h4>
-            <p class="text-muted small">Browse movies and book your seat instantly</p>
+        <div class="my-10 text-center text-white text-3xl">
+            <h1 class="fw-bold">🎬 Now Showing</h1>
         </div>
         <div class="card-body">
             @if($movies->isEmpty())
